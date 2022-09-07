@@ -5,6 +5,7 @@
 [Badge examples](https://github.com/Naereen/badges)
 
 rst badge
+
 ```text
 .. .. image:: https://pyup.io/repos/github/audreyfeldroy/cookiecutter-pypackage/shield.svg
 ..     :target: https://pyup.io/repos/github/audreyfeldroy/cookiecutter-pypackage/
