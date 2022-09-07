@@ -2,7 +2,7 @@
 Changelog
 =========
 
-_PROJECT_NAME_ - 0.1.0
+Python Base - 0.1.0
 -------------------
 
 [Template] - Soon™

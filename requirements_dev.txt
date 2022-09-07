@@ -24,6 +24,7 @@ Sphinx
 sphinx-autobuild
 sphinx-autodoc-typehints
 sphinx_rtd_theme
+myst-parser
 
 # Source control
 pre-commit

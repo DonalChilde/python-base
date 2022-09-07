@@ -121,7 +121,8 @@ function docs:build() { ## Build documentation.
     # rm -f docs/$PACKAGE.rst
 	# rm -f docs/modules.rst
 	# sphinx-apidoc -o ./docs/ ./src/$PACKAGE
-    sphinx-build -b html ./docs ./docs/_build
+    rm -rf ./docs/build/
+    sphinx-build -b html ./docs/source ./docs/build
 }
 
 function docs:serve() { ## Open docs in a web browser
