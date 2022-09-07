@@ -30,4 +30,4 @@ Generate a Python project
 .. installation_end
 
 .. note::
-    Derived from: https://github.com/audreyfeldroy/cookiecutter-pypackage/
+   Derived from: https://github.com/audreyfeldroy/cookiecutter-pypackage/
