@@ -8,7 +8,6 @@ from typing import Any, Dict, List, Optional, Union
 
 from ..logging import rotating_file_logger
 
-# from {{cookiecutter.project_slug}}.app_lib.logging import rotating_file_logger
 
 import pytest
 
