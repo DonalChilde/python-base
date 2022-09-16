@@ -5,32 +5,32 @@ PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
 PROJECT_FILES = {
     "Minimal": [
-        "src/{{ cookicutter.project_slug }}/minimal.py",
-        "tests/{{ cookicutter.project_slug }}/test_minimal.py",
+        "src/{{ cookiecutter.project_slug }}/minimal.py",
+        "tests/{{ cookiecutter.project_slug }}/test_minimal.py",
     ],
     "Library": [
-        "src/{{ cookicutter.project_slug }}/library.py",
-        "tests/{{ cookicutter.project_slug }}/test_library.py",
+        "src/{{ cookiecutter.project_slug }}/library.py",
+        "tests/{{ cookiecutter.project_slug }}/test_library.py",
     ],
     "Click": [
-        "src/{{ cookicutter.project_slug }}/cli/cli_click.py",
-        "tests/{{ cookicutter.project_slug }}/test_click.py",
+        "src/{{ cookiecutter.project_slug }}/cli/cli_click.py",
+        "tests/{{ cookiecutter.project_slug }}/test_click.py",
     ],
     "Typer": [
-        "src/{{ cookicutter.project_slug }}/cli/cli_typer.py",
-        "tests/{{ cookicutter.project_slug }}/test_typer.py",
+        "src/{{ cookiecutter.project_slug }}/cli/cli_typer.py",
+        "tests/{{ cookiecutter.project_slug }}/test_typer.py",
     ],
     "Argparse": [
-        "src/{{ cookicutter.project_slug }}/cli/cli_argparse.py",
-        "tests/{{ cookicutter.project_slug }}/test_argparse.py",
+        "src/{{ cookiecutter.project_slug }}/cli/cli_argparse.py",
+        "tests/{{ cookiecutter.project_slug }}/test_argparse.py",
     ],
     "Flask": [
-        "src/{{ cookicutter.project_slug }}/flask_example.py",
-        "tests/{{ cookicutter.project_slug }}/test_flask.py",
+        "src/{{ cookiecutter.project_slug }}/flask_example.py",
+        "tests/{{ cookiecutter.project_slug }}/test_flask.py",
     ],
     "FastApi": [
-        "src/{{ cookicutter.project_slug }}/fastapi_example.py",
-        "tests/{{ cookicutter.project_slug }}/test_fastapi.py",
+        "src/{{ cookiecutter.project_slug }}/fastapi_example.py",
+        "tests/{{ cookiecutter.project_slug }}/test_fastapi.py",
     ],
 }
 
