@@ -37,7 +37,6 @@ keywords = [
     {% for keyword in cookiecutter.keywords %}
     "{{ keyword }}",
     {% endfor %}
-    # {{ ',\n'.join(['"{}"'.format(value) for value in cookiecutter.keywords]) }}]
 license = {file = "LICENSE"}
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
@@ -54,7 +53,6 @@ dependencies=[
     {% for dep in cookiecutter.dependencies[cookiecutter.project_type] %}
     "{{ dep }}",
     {% endfor %}
-    # {{ ',\n'.join(['"{}"'.format(value) for value in cookiecutter.dependencies[cookiecutter.project_type]]) }}
 {%- endif %}
 ]
 dynamic = ["version","readme"]
