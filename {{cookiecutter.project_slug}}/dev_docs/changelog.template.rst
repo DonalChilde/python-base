@@ -1,23 +1,22 @@
-==================
+##################
 Changelog Template
-==================
-
-changelog template - 0.1.0
---------------------------
+##################
 
 
-[Template] - Soon™
+
+
+[0.0.0] - Soon™
 -------------------------
 
 Release Notes
 ^^^^^^^^^^^^^
 
 * Copy template to top of changelog.
-* Change [Template] to [Unreleased]
+* Change [0.0.0] to new version
 * At release:
 
-  * Change [Unreleased] to the version, eg. 0.0.1
   * Change Soon™ to the iso date, eg. 1970-01-01
+  * Remove empty sections
 
 * `Changelogs are important`_
 
