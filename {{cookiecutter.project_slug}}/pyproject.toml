@@ -33,7 +33,11 @@ description = "{{ cookiecutter.project_short_description }}"
 # readme = "README.rst"
 requires-python = ">=3.7"
 # https://stackoverflow.com/a/32355792/105844
-keywords = [{{ ',\n'.join(['"{}"'.format(value) for value in cookiecutter.keywords]) }}]
+keywords = [
+    {% for keyword in cookiecutter.keywords %}
+    "{{ keyword }}",
+    {% endfor %}
+    # {{ ',\n'.join(['"{}"'.format(value) for value in cookiecutter.keywords]) }}]
 license = {file = "LICENSE"}
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
@@ -47,7 +51,10 @@ classifiers = [
 ]
 dependencies=[
 {%- if cookiecutter.project_type in ["Click","Typer","Flask","FastApi"] %}
-    {{ ',\n'.join(['"{}"'.format(value) for value in cookiecutter.dependencies[cookiecutter.project_type]]) }}
+    {% for dep in cookiecutter.dependencies[cookiecutter.project_type] %}
+    "{{ dep }}",
+    {% endfor %}
+    # {{ ',\n'.join(['"{}"'.format(value) for value in cookiecutter.dependencies[cookiecutter.project_type]]) }}
 {%- endif %}
 ]
 dynamic = ["version","readme"]
