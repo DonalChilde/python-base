@@ -1,6 +1,114 @@
+{%- set license_classifiers = {
+    'MIT license': 'License :: OSI Approved :: MIT License',
+    'BSD license': 'License :: OSI Approved :: BSD License',
+    'ISC license': 'License :: OSI Approved :: ISC License (ISCL)',
+    'Apache Software License 2.0': 'License :: OSI Approved :: Apache Software License',
+    'GNU General Public License v3': 'License :: OSI Approved :: GNU General Public License v3 (GPLv3)'
+} %}
+
+{%- set cli_module = {
+    "Argparse":"cli.cli_argparse",
+    "Click":"cli.cli_click",
+    "Typer":"cli.cli_typer"
+}%}
+
+{%- set dependencies={
+    "Click":["click"],
+    "Typer":["typer"],
+    "Flask":["flask"],
+    "FastApi":[
+        "Fastapi",
+        "uvicorn[standard]",
+        ],
+}%}
+
+
 [build-system]
-requires = ["setuptools >= 40.6.0", "wheel"]
+requires = ["setuptools >= 65.3.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name="{{ cookiecutter.project_name }}"
+description = "{{ cookiecutter.project_short_description }}"
+# readme = "README.rst"
+requires-python = ">=3.7"
+# https://stackoverflow.com/a/32355792/105844
+keywords = [{{ ',\n'.join(['"{}"'.format(value) for value in cookiecutter.keywords]) }}]
+license = {file = "LICENSE"}
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    {%- if cookiecutter.open_source_license in license_classifiers %}
+    {{ license_classifiers[cookiecutter.open_source_license] }}
+    {%- endif %}
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+]
+dependencies=[
+{%- if cookiecutter.project_type in ["Click","Typer","Flask","FastApi"] %}
+    {{ ',\n'.join(['"{}"'.format(value) for value in cookiecutter.dependencies[cookiecutter.project_type]]) }}
+{%- endif %}
+]
+dynamic = ["version","readme"]
+
+[tool.setuptools.dynamic]
+version = {attr = "{{ cookiecutter.project_slug }}.__VERSION__"}
+readme = {file = ["README.rst"]}
+
+[project.optional-dependencies]
+dev = [
+    # Packaging and Distribution
+    "pip",
+    "setuptools",
+    "wheel",
+    "twine",
+    "pip-tools",
+
+    # Linting and Formatting
+    "black",
+    "coverage",
+    "pylint",
+    "mypy",
+    "doc8",
+
+    # Testing
+    "tox",
+    "pytest",
+    "pytest-cov",
+
+    # Documentation
+    "Sphinx",
+    "sphinx-autobuild",
+    "sphinx-autodoc-typehints",
+    "sphinx_rtd_theme",
+    "myst-parser",
+
+    # Source control
+    "pre-commit",
+
+    # Tools
+    "pysnooper",
+
+    # Vscode
+    "esbonio",
+    "rst2html",
+    "rstcheck",
+
+    # For the possible project skeletons
+    "Click",
+    "Typer",
+    "Flask",
+    "Fastapi",
+    "uvicorn[standard]",
+]
+
+{%- if cookiecutter.project_type in ["Click","Typer","Argparse"] %}
+[project.scripts]
+{{ cookiecutter.cli_entry_point }} = {{ cookiecutter.project_slug }}.{{ cli_module[cookiecutter.project_type] }}:main
+{%- endif %}
+# [project.scripts]
+# my-script = "my_package.module:function"
 
 [tool.isort]
 profile = "black"
@@ -9,3 +117,23 @@ src_paths = ["src", "test"]
 [tool.black]
 line-length = 88
 target-version = ['py310']
+
+# [tool.pylint.messages_control]
+# disable = [
+#     "raw-checker-failed", 
+#     "bad-inline-option", 
+#     "locally-disabled", 
+#     "file-ignored", 
+#     "suppressed-message", 
+#     "useless-suppression", 
+#     "deprecated-pragma", 
+#     "use-symbolic-message-instead"
+# ]
+
+# [tool.pytest.ini_options]
+# minversion = "6.0"
+# addopts = "-ra -q"
+# testpaths = [
+#     "tests",
+#     "integration",
+# ]
