@@ -42,7 +42,6 @@ def remove_file(filepath):
 if __name__ == "__main__":
 
     for key, files in PROJECT_FILES.items():
-        print("key=", key)
         if key != "{{cookiecutter.project_type}}":
             for file in files:
                 remove_file(file)
