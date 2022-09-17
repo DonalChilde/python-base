@@ -34,7 +34,7 @@ description = "{{ cookiecutter.project_short_description }}"
 requires-python = ">=3.7"
 # https://stackoverflow.com/a/32355792/105844
 keywords = [
-    {% for keyword in cookiecutter.keywords %}
+    {% for keyword in cookiecutter.keywords.split() %}
     "{{ keyword }}",
     {% endfor %}
 license = {file = "LICENSE"}
@@ -43,7 +43,7 @@ classifiers = [
     "Intended Audience :: Developers",
     "Natural Language :: English",
     {%- if cookiecutter.open_source_license in license_classifiers %}
-    {{ license_classifiers[cookiecutter.open_source_license] }}
+    "{{ license_classifiers[cookiecutter.open_source_license] }}",
     {%- endif %}
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
