@@ -1,10 +1,6 @@
-"""
-Top-level package for python_base.
+"""Top-level package for project_slug."""
 
-This exists only to maintain consistency with projects that actually have code.
-"""
-
-__author__ = "Chad Lowe"
+__author__ = """Chad Lowe"""
 __email__ = "pfmsoft@gmail.com"
 # The short X.Y.Z version.
 __version__ = "0.1.0"

@@ -1,7 +1,8 @@
-# Configuration file for the Sphinx documentation builder.
-#
-# For the full list of built-in configuration values, see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
+"""Configuration file for the Sphinx documentation builder.
+
+For the full list of built-in configuration values, see the documentation:
+https://www.sphinx-doc.org/en/master/usage/configuration.html
+"""
 
 # -- Path setup --------------------------------------------------------------
 
@@ -13,18 +14,20 @@ import os
 import sys
 
 sys.path.insert(0, os.path.abspath("../../src"))
-import python_base
+import project_slug  # pylint: disable=wrong-import-position
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "Python Base"
-copyright = "2022, Chad Lowe"
-author = "Chad Lowe"
+# pylint: disable=invalid-name
+project = "project_name"
+copyright = "2022" + ", " + project_slug.__author__  # pylint: disable=redefined-builtin
+author = project_slug.__author__
 # The full version, including alpha/beta/rc tags.
-release = python_base.__release__
+release = project_slug.__release__
 # The short X.Y.Z version.
-version = python_base.__version__
+version = project_slug.__version__
+# pylint: enable=invalid-name
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -46,6 +49,11 @@ templates_path = ["_templates"]
 # This pattern also affects html_static_path and html_extra_path.
 # exclude_patterns = []
 
+# Mapping Example
+# intersphinx_mapping = {
+#     "python": ("https://docs.python.org/3", None),
+#     "aiohttp_queue": ("https://pfmsoft-aiohttp-queue.readthedocs.io/en/latest/", None),
+# }
 intersphinx_mapping = {"python": ("https://docs.python.org/3", None)}
 
 # The suffix(es) of source filenames.

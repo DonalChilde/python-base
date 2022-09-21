@@ -1,6 +1,0 @@
-cookiecutter
-Click
-Typer
-Flask
-Fastapi
-uvicorn[standard]

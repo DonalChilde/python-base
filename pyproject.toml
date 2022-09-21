@@ -1,14 +1,18 @@
+
 [build-system]
 requires = ["setuptools >= 65.3.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name="cookiecutter-python-base"
-description = "My package description"
+name="project_name"
+description = "project_name_short_description"
 # readme = "README.rst"
 requires-python = ">=3.7"
-keywords = ["Python", "cookiecutter"]
+keywords = [
+    "Python",
+]
 license = {file = "LICENSE"}
+# https://pypi.org/classifiers/
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
     "Intended Audience :: Developers",
@@ -18,12 +22,12 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
 ]
 dependencies=[
-    "cookiecutter",
+
 ]
 dynamic = ["version","readme"]
 
 [tool.setuptools.dynamic]
-version = {attr = "python_base.__VERSION__"}
+version = {attr = "project_slug.__VERSION__"}
 readme = {file = ["README.rst"]}
 
 [project.optional-dependencies]
@@ -65,12 +69,6 @@ dev = [
     "rst2html",
     "rstcheck",
 
-    # For the possible project skeletons
-    "Click",
-    "Typer",
-    "Flask",
-    "Fastapi",
-    "uvicorn[standard]",
 ]
 
 
@@ -85,6 +83,9 @@ src_paths = ["src", "test"]
 line-length = 88
 target-version = ['py310']
 
+# https://pylint.pycqa.org/en/latest/user_guide/usage/run.html#command-line-options
+# https://pylint.pycqa.org/en/latest/user_guide/configuration/all-options.html#standard-checkers
+# pylint --generate-toml-config > ./pylint-toml-example.toml
 # [tool.pylint.messages_control]
 # disable = [
 #     "raw-checker-failed", 
@@ -97,6 +98,11 @@ target-version = ['py310']
 #     "use-symbolic-message-instead"
 # ]
 
+[tool.pylint.format]
+# for black compatability
+max-line-length = "88"
+
+# https://docs.pytest.org/en/6.2.x/customize.html#pyproject-toml
 # [tool.pytest.ini_options]
 # minversion = "6.0"
 # addopts = "-ra -q"
