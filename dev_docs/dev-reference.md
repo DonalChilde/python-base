@@ -14,6 +14,8 @@ rst badge
 
 ## rst
 
+- [rst Primer](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html)
+
 ### Heading Levels
 
 Normally, there are no heading levels assigned to certain characters as the structure is determined from the succession of headings. However, it is better to stick to the same convention throughout a project. For instance:
@@ -30,6 +32,11 @@ Normally, there are no heading levels assigned to certain characters as the stru
 ### Napolean for google style doc strings
 
 - [Napolean](https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html)
+
+## Markdown
+
+- [MyST](https://myst-parser.readthedocs.io/en/latest/index.html)
+- [CommonMark](https://spec.commonmark.org/)
 
 ## Linting
 
@@ -51,6 +58,8 @@ Block or line level
 # pylint: disable=no-member
 # pylint: enable=no-member
 ```
+
+## Testing
 
 ## Python
 
