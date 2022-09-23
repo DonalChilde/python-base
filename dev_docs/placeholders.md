@@ -10,6 +10,7 @@ The top level package name
 - ```./tests/project_slug/conftest.py```
 - ```./pyproject.toml```
 - ```./docs/source/conf.py```
+- ```./tests/project_slug/test_minimal.py```
 
 ## project_namespace
 
