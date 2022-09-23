@@ -1,5 +1,42 @@
 # Project setup
 
+## Fresh project with no requirements.txt or requirements_dev.txt
+
+```bash
+python -m piptools compile --upgrade --resolver backtracking -o requirements.txt pyproject.toml
+python -m piptools compile --extra dev --upgrade --resolver backtracking -o requirements_dev.txt pyproject.toml
+```
+
+## Fresh project with no .git
+
+```bash
+# git init
+# pre-commit
+```
+
+## checkout python_base, and prepare for use
+
+### checkout the base project
+
+```bash
+# https://stackoverflow.com/questions/651038/how-do-i-clone-a-git-repository-into-a-specific-folder
+# check out the project in a directory named ./python-base
+git clone git@github.com:DonalChilde/python-base.git
+# use the current directory as the project directory
+git clone git@github.com:DonalChilde/python-base.git .
+# checkout the project in a new directory
+git clone git@github.com:DonalChilde/python-base.git ./new_project_name
+```
+
+### Remove the old .git directory
+
+```bash
+# specify actual path to the ,git directory
+rm -rf ./.git
+```
+
+### Update dev-tool.sh
+
 Download and configure dev-tool.sh bash script
 
 ```bash
@@ -15,25 +52,45 @@ chmod u+x ./scripts/dev-tool.sh
 
 ```
 
-If this is the first time using dev-tool.sh
+If this is the first time using dev-tool.sh, or the commands have changed.
 
 ```bash
-# Install bash completion if desired
+# Install/Update bash completions if desired
 ./scripts/dev-tool.sh completions ~/.bash_completions
 
-# and add
+# inspect the ~/.bashrc
+cat ~/.bashrc | more
+
+# and add to ~/.bashrc if command is not present already
 echo "source ~/.bash_completions/dev-tool.completion" >> ~/.bashrc
-# to ~/.bashrc
 ```
 
-Initialize the project venv
+### Update project placeholder values
+
+See placeholders.md for a list of placeholder values and their locations.
+Multi-file find and replace should make quick work of this.
+Remember to use case sensitive search.
+
+### Initialize the project venv
+
+This will also update pip, setuptools, and pip-tools.
 
 ```bash
-# This will also update the build tools.
 ./scripts/dev-tool.sh venv-init
 ```
 
+### Compile and install the project requirements, install the project as editable
+
 ```bash
-python -m piptools compile --upgrade --resolver backtracking -o requirements.txt pyproject.toml
-python -m piptools compile --extra dev --upgrade --resolver backtracking -o requirements_dev.txt pyproject.toml
+./scripts/dev-tool.sh deps-compile
+./scripts/dev-tool.ch deps-init
+```
+
+## Init and configure git
+
+```bash
+git init
+./scripts/dev-tool.sh scm-precommit-init
+
+
 ```

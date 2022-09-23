@@ -2,19 +2,16 @@
 import logging
 from pathlib import Path
 
-from ..logging import rotating_file_logger
-
-
 import pytest
+
+from ..logging import rotating_file_logger
 
 APP_LOG_LEVEL = logging.INFO
 TEST_LOG_LEVEL = logging.DEBUG
 # If PROJECT_NAMESPACE not used, then make PROJECT_NAMESPACE = ""
-PROJECT_NAMESPACE = "project_namespace".upper()+"_"
+PROJECT_NAMESPACE = "project_namespace".upper() + "_"
 # PROJECT_NAMESPACE = ""
 PROJECT_SLUG = "project_slug".upper()
-
-
 
 
 @pytest.fixture(scope="session", name="logger")
@@ -41,24 +38,22 @@ def test_log_path_(test_app_data_dir) -> Path:
 @pytest.fixture(scope="session", name="test_app_data_dir")
 def test_app_data_dir_(tmp_path_factory) -> Path:
     """make a temp directory for app data."""
-    test_app_data_dir = tmp_path_factory.mktemp(PROJECT_SLUG.lower()+"-")
+    test_app_data_dir = tmp_path_factory.mktemp(PROJECT_SLUG.lower() + "-")
     return test_app_data_dir
-
-
-
- 
 
 
 @pytest.fixture(autouse=True)
 def env_setup(monkeypatch, test_app_data_dir):
     """environment variables set for each test."""
-    monkeypatch.setenv(PROJECT_NAMESPACE+PROJECT_SLUG+"_TESTING","True",
+    monkeypatch.setenv(
+        PROJECT_NAMESPACE + PROJECT_SLUG + "_TESTING",
+        "True",
     )
     monkeypatch.setenv(
-        PROJECT_NAMESPACE+PROJECT_SLUG+"_LOG_LEVEL",
+        PROJECT_NAMESPACE + PROJECT_SLUG + "_LOG_LEVEL",
         str(APP_LOG_LEVEL),
     )
     monkeypatch.setenv(
-        PROJECT_NAMESPACE+PROJECT_SLUG+"_APP_DIR",
+        PROJECT_NAMESPACE + PROJECT_SLUG + "_APP_DIR",
         str(test_app_data_dir),
     )
