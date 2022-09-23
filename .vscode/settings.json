@@ -19,5 +19,6 @@
   "python.analysis.extraPaths": ["./src"],
   "liveServer.settings.port": 5501,
   "esbonio.server.enabled": true,
-  "esbonio.sphinx.confDir": ""
+  "esbonio.sphinx.confDir": "${workspaceFolder}/docs/source",
+  "esbonio.sphinx.buildDir": "${workspaceFolder}/docs/build"
 }
