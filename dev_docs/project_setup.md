@@ -1,22 +1,6 @@
 # Project setup
 
-## Fresh project with no requirements.txt or requirements_dev.txt
-
-```bash
-python -m piptools compile --upgrade --resolver backtracking -o requirements.txt pyproject.toml
-python -m piptools compile --extra dev --upgrade --resolver backtracking -o requirements_dev.txt pyproject.toml
-```
-
-## Fresh project with no .git
-
-```bash
-# git init
-# pre-commit
-```
-
-## checkout python_base, and prepare for use
-
-### checkout the base project
+## Checkout the base project
 
 ```bash
 # https://stackoverflow.com/questions/651038/how-do-i-clone-a-git-repository-into-a-specific-folder
@@ -28,14 +12,14 @@ git clone git@github.com:DonalChilde/python-base.git .
 git clone git@github.com:DonalChilde/python-base.git ./new_project_name
 ```
 
-### Remove the old .git directory
+## Remove the old .git directory
 
 ```bash
 # specify actual path to the ,git directory
 rm -rf ./.git
 ```
 
-### Update dev-tool.sh
+## Update dev-tool.sh
 
 Download and configure dev-tool.sh bash script
 
@@ -65,13 +49,13 @@ cat ~/.bashrc | more
 echo "source ~/.bash_completions/dev-tool.completion" >> ~/.bashrc
 ```
 
-### Update project placeholder values
+## Update project placeholder values
 
 See placeholders.md for a list of placeholder values and their locations.
 Multi-file find and replace should make quick work of this.
 Remember to use case sensitive search.
 
-### Initialize the project venv
+## Initialize the project venv
 
 This will also update pip, setuptools, and pip-tools.
 
@@ -79,7 +63,7 @@ This will also update pip, setuptools, and pip-tools.
 ./scripts/dev-tool.sh venv-init
 ```
 
-### Compile and install the project requirements, install the project as editable
+## Compile and install the project requirements, install the project as editable
 
 ```bash
 ./scripts/dev-tool.sh deps-compile
@@ -91,6 +75,10 @@ This will also update pip, setuptools, and pip-tools.
 ```bash
 git init
 ./scripts/dev-tool.sh scm-precommit-init
-
-
+./scripts/dev-tool.sh scm-precommit-update
+git add .
+git commit -m "First commit"
+# create a new project on github, and copy the remote repository URL
+git remote add origin  <REMOTE_URL>
+git remote -v
 ```
