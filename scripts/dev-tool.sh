@@ -9,7 +9,7 @@
 
 # Ideas shamelessly lifted from:
 # https://github.com/nickjj/docker-flask-example/blob/main/run
-# https://github.com/audreyfeldroy/cookiecutter-pypackage/blob/master/%7B%7Bcookiecutter.project_slug%7D%7D/Makefile
+# https://github.com/audreyfeldroy/cookiecutter-pypackage
 # https://superuser.com/questions/611538/is-there-a-way-to-display-a-countdown-or-stopwatch-timer-in-a-terminal
 # https://www.gnu.org/software/gnuastro/manual/html_node/Bash-TAB-completion-tutorial.html
 # https://tldp.org/LDP/abs/html/tabexpansion.html
@@ -494,7 +494,7 @@ function completions() { ## Generate a completion file. Accepts a directory for 
     else
         dir_path="$1"
     fi
-    COMPLETION_COMMANDS="clean clean-build clean-docs clean-pyc clean-test completions deps-compile deps-init deps-install deps-install-build deps-install-dev deps-install-editable deps-install-main deps-outdated deps-sync deps-upgrade dist-build dist-release dist-test-release docs-build docs-serve format format-black format-diff format-diff-black format-diff-isort format-isort generate-env help lint lint-mypy lint-pylint pytest pytest-cov settings tox venv-init venv-remove venv-reset venv-version"
+    COMPLETION_COMMANDS="clean clean-build clean-docs clean-pyc clean-test completions deps-compile deps-init deps-install deps-install-build deps-install-dev deps-install-editable deps-install-main deps-outdated deps-sync deps-upgrade dist-build dist-release dist-test-release docs-build docs-serve format format-black format-diff format-diff-black format-diff-isort format-isort generate-env help lint lint-mypy lint-pylint pytest pytest-cov scm-precommit-install scm-precommit-run scm-precommit-update settings tox venv-init venv-remove venv-reset venv-version"
     cat <<EOF >"$dir_path/$SCRIPT_NAME.completion"
 # An example of bash completion
 # File name: $SCRIPT_NAME.completion
