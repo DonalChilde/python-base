@@ -1,4 +1,4 @@
-"""conftest.py file for {{ cookiecutter.project_slug }}"""
+"""conftest.py file for project_slug"""
 import logging
 from pathlib import Path
 
