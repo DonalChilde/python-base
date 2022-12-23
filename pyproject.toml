@@ -8,10 +8,7 @@ name = "python-base"
 readme = "README.md"
 requires-python = ">=3.7"
 license = { file = "LICENSE" }
-authors = [
-    { name = "Chad Lowe" },
-    { email = "pfmsoft.dev@gmail.com" },
-]
+authors = [{ name = "Chad Lowe" }, { email = "pfmsoft.dev@gmail.com" }]
 classifiers = [
     "Development Status :: 1 - Planning",
     "Programming Language :: Python",
@@ -24,7 +21,7 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dynamic = ["version", "description"]
-dependencies = []
+dependencies = ["click"]
 
 [project.scripts]
 python-base = "python_base.python_base_cli:main"
