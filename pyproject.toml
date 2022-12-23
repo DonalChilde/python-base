@@ -1,0 +1,98 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+keywords = ['python']
+name = "python-base"
+readme = "README.md"
+requires-python = ">=3.7"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Chad Lowe" },
+    { email = "pfmsoft.dev@gmail.com" },
+]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dynamic = ["version", "description"]
+dependencies = []
+
+[project.scripts]
+python-base = "python_base.python_base_cli:main"
+
+[project.urls]
+Documentation = "https://github.com/DonalChilde/python-base#readme"
+Documentation_rtd = "https://python-base.readthedocs.io"
+Issues = "https://github.com/DonalChilde/python-base/issues"
+Source = "https://github.com/DonalChilde/python-base"
+
+
+[project.optional-dependencies]
+dev = [
+
+    # Automation
+    "nox",
+    "pre-commit",
+
+    # Linting and Formatting
+    "black",
+    "isort",
+
+    # Tools
+    "pysnooper",
+]
+lint = ["pylint", "mypy"]
+doc = [
+    # Documentation
+    "Sphinx",
+    "sphinx-autobuild",
+    "sphinx-autodoc-typehints",
+    "sphinx_rtd_theme",
+    "myst-parser",
+    "sphinx-click",
+]
+vscode = ["esbonio", "rst2html", "rstcheck"]
+testing = ["pytest", "coverage", "pytest-cov"]
+
+
+[tool.isort]
+profile = "black"
+src_paths = ["src", "test"]
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+
+# https://pylint.pycqa.org/en/latest/user_guide/usage/run.html#command-line-options
+# https://pylint.pycqa.org/en/latest/user_guide/configuration/all-options.html#standard-checkers
+# pylint --generate-toml-config > ./pylint-toml-example.toml
+# [tool.pylint.messages_control]
+# disable = [
+#     "raw-checker-failed",
+#     "bad-inline-option",
+#     "locally-disabled",
+#     "file-ignored",
+#     "suppressed-message",
+#     "useless-suppression",
+#     "deprecated-pragma",
+#     "use-symbolic-message-instead"
+# ]
+
+[tool.pylint.format]
+# for black compatability
+max-line-length = "95"
+
+
+[tool.coverage.run]
+branch = true
+parallel = true
+# omit = [""]
